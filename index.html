@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="wizualizacje, wizualizacje architektoniczne, architektura, design">
+    <title>Nowicki-Okunowski Wizualizacje</title>
+    <link media="screen" rel="stylesheet" href="style.css">
+    <link media="screen" rel="icon" type="image/png" sizes="16x16" href="img/pic.png">
+    <link media="screen" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            transition: all 0.4s ease-out;
+            height: 10%;
+        }
+
+        .inclusion {
+            color: #296e92;
+        }
+
+        .more {
+            color: #999999;
+        }
+
+        .sticky {
+            background-color: white;
+            transition: all 0.4s ease-out;
+            top: 0;
+            height: 5rem;
+        }
+
+        .foot {
+            position: sticky;
+            top: 100%;
+        }
+
+        body {
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        footer {
+            width: 100%;
+        }
+
+        .navlink {
+            color: gray;
+        }
+
+        h2 {
+            color: black;
+            letter-spacing: 0.2rem;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 575px) {
+            h2 {
+                font-size: 40px;
+            }
+        }
+
+        @media (min-width: 575px) {
+            h2 {
+                font-size: 48px;
+            }
+        }
+
+        .log,
+        .nl {
+            color: white;
+        }
+
+        @media (max-width: 575px) {
+            .nl {
+                color: gray;
+            }
+
+            nav {
+                background-color: white;
+            }
+
+            .navbar-toggler {
+                background-color: none;
+                border: 1px solid gray;
+            }
+
+            .log {
+                color: gray;
+            }
+        }
+
+        .nl.white,
+        .log.white {
+            color: gray;
+        }
+
+        .nl.white:hover,
+        .log.white:hover {
+            color: rgb(37, 37, 37);
+        }
+
+        a.nl {
+            position: relative;
+            text-decoration: none;
+            letter-spacing: 0.5;
+        }
+
+        @media screen and (min-width: 579px) {
+            .nl.white::after {
+                position: absolute;
+                content: "";
+                height: 2px;
+                width: 0;
+                background-color: rgb(37, 37, 37);
+                left: 12%;
+                bottom: -1px;
+                transition: 0.3s;
+            }
+        }
+
+        @media screen and (min-width: 579px) {
+            a.nl::after {
+                position: absolute;
+                content: "";
+                height: 2px;
+                width: 0;
+                background-color: rgb(255, 255, 255);
+                left: 12%;
+                bottom: -1px;
+                transition: 0.3s;
+            }
+        }
+
+        .navbar-nav:hover {
+            color: white;
+        }
+
+        a.nl:hover::after {
+            width: 80%;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            border: 1px solid rgb(255, 255, 255);
+            opacity: 90%;
+            color: rgb(0, 0, 0);
+        }
+
+        .btn {
+            border: 1px solid white;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            padding-left: 30px;
+            padding-right: 30px;
+            color: white;
+            letter-spacing: .2rem;
+            border-radius: 0px;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            transition: ease-out 0.2s;
+        }
+
+        .before_btn {
+            color: rgb(255, 255, 255);
+            letter-spacing: .2rem;
+            font-size: 1.2rem;
+        }
+
+        .animate-text {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .log {
+            opacity: 100%;
+        }
+
+        .log:hover {
+            -webkit-filter: brightness(90%);
+            animation: ease-in-out 1s;
+        }
+
+        h1.text {
+            font-size: clamp(36px, 4vw, 75px);
+            color: #ffffff;
+            font-weight: 500;
+            display: inline-block;
+            line-height: 96px;
+            display: none;
+            letter-spacing: 6px;
+        }
+
+        h1.text-in {
+            display: block;
+            animation: textIn .5s ease;
+        }
+
+        h1.text-out {
+            animation: textOut .5s ease;
+        }
+
+        @keyframes textIn {
+            0% {
+                transform: translateY(100%);
+            }
+
+            100% {
+                transform: translateY(0%);
+            }
+        }
+
+        @keyframes textOut {
+            0% {
+                transform: translateY(0%);
+            }
+
+            100% {
+                transform: translateY(-100%);
+
+            }
+        }
+
+        .block {
+            display: block;
+            width: 200px;
+            height: 100px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 500px) {
+            .szeroka-strona {
+                max-width: 100%;
+                min-width: 85%;
+            }
+
+            .col-sm {
+                margin-bottom: 20px;
+            }
+        }
+
+        .back {
+            position: relative;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.35) 80%, rgba(0, 0, 0, 0.45) 100%), url(img/building1.webp);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        @media screen and (max-width: 575px) {
+            .back {
+                background-attachment: scroll;
+            }
+        }
+
+        @media screen and (min-width: 575px) {
+            .back {
+                background-attachment: fixed;
+            }
+
+            .image-comparison {
+                width: 85%;
+            }
+        }
+
+        .image-comparison {
+            margin: 20px auto;
+        }
+
+        .image-comparison img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left;
+        }
+
+        .image-comparison .images-container {
+            position: relative;
+            display: flex;
+        }
+
+        .image-comparison .images-container .before-image {
+            position: absolute;
+            top: 0;
+            width: 50%;
+        }
+
+        .image-comparison .slider {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+        }
+
+        .image-comparison .slider-line {
+            position: absolute;
+            height: 100%;
+            width: 4px;
+            background: #296e92;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .image-comparison .slider-icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 62px;
+            padding: 10px;
+            color: rgb(255, 255, 255);
+            background-color: #296e92;
+            border-radius: 3rem;
+            transform: translate(-50%, -50%) rotateZ(90deg);
+        }
+
+        .kontakt:hover {
+            transform: translateY(-12%);
+            transition: ease-in-out 0.3s;
+        }
+
+        .kontakt-text {
+            font-size: clamp(11px, 3vw, 16px);
+        }
+
+        .copy-text {
+            font-size: clamp(11px, 3vw, 14px);
+        }
+
+        .asd:hover {
+            -webkit-filter: brightness(80%);
+            -webkit-transition: all 0.8s ease;
+            -moz-transition: all 0.8 ease;
+            -o-transition: all 0.8 ease;
+            -ms-transition: all 0.8 ease;
+            transition: all 0.8 ease;
+        }
+
+        a.nav-link:hover {
+            color: white;
+        }
+
+        a.navbar-brand:hover {
+            color: white;
+        }
+
+        .navbar-toggler {
+            background-color: white;
+        }
+
+        .nav-toggler-white {
+            background-color: none;
+            border: 1px solid gray;
+        }
+
+        @media screen and (max-width: 500px) {
+            .arrow {
+                width: 2px;
+            }
+
+        }
+
+        .arrows {
+            position: relative;
+            top: 25%;
+            left: 25%;
+            width: 30px;
+            height: 30px;
+        }
+
+        .arrow_right {
+            position: relative;
+            top: 25%;
+            right: 5%;
+            width: 30px;
+            height: 30px;
+            transform: translate(50%) rotateZ(180deg);
+        }
+
+        .div_arrow {
+            position: relative;
+            top: -50%;
+            width: 58px;
+            height: 58px;
+            border-radius: 8rem;
+            background-color: #296e92;
+        }
+
+        @media screen and (max-width: 572px) {
+            .b_g {
+                background-color: white;
+            }
+        }
+
+        .underline, .underline_small {
+            position: relative; 
+            display: inline-block; 
+        }
+
+        @media screen and (min-width: 776px) {
+            .underline::after {
+            content: ""; 
+            position: absolute; 
+            left: 0; 
+            bottom: -35px;
+            width: 40px; 
+            height: 3px; 
+            background-color: #296e92; 
+        }    
+        }
+
+        @media screen and (max-width: 776px) {
+            .underline_small::after {
+            content: ""; 
+            position: absolute; 
+            left: 29%; 
+            bottom: -35px;
+            width: 43px; 
+            height: 4px; 
+            background-color: #296e92; 
+        }    
+
+        .slider {
+            border: 1px solid red;
+        }
+
+        .item{
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            border-radius: 6px;
+        }
+
+        }
+    </style>
+</head>
+
+<body id="poczatek" style="height:2000px;">
+    
+    <nav class="navbar fixed-top navbar-expand-sm navbar-light">
+        <div class="container-fluid" style="margin-left: 1vw; margin-right: 3vw; margin-left: 3vw;">
+            <a href="#poczatek" class="log navbar-brand mb-0 fs-4">
+                <img src="img/pic.webp" class="d-inline-block mx-1" width="50" height="50" alt="Logo">
+                <p class="d-inline-block" style="font-size: 2.0vh;">Nowicki-Okunowski Design</p>
+            </a>
+            <button style="margin-left: 3vw;" class="navbar-toggler px-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style=" height: 29px; width: 29px;"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end b_g mx-lg-5" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active px-4 my-1">
+                    <a href="#oferta" class="nl nav-link">Oferta</a>
+                </li>
+                <li class="nav-item active px-4 my-1">
+                    <a href="#portfolio" class="nl nav-link">Portfolio</a>
+                </li>    
+                <li class="nav-item active px-4 my-1">
+                    <a href="#Korzyści" class="nl nav-link">Korzyści</a>
+                </li>   
+                <li class="nav-item active px-4 my-1">
+                    <a href="#kontakt" class="nl nav-link">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="back d-flex flex-column justify-content-center align-items-center">
+        <div class="animate-text text-center" style="padding-top: 80px;">
+            <h1 class="text">Wizualizacje</h1>
+            <h1 class="text">Architektura</h1>
+            <h1 class="text">Design</h1>
+        </div>
+        <p class="before_btn text-center" style="margin-top: 20px; margin-bottom: 90px;">Jesteśmy tu aby zająć się twoją
+            wizualizacją</p>
+        <div class="d-flex">
+            <a class="btn" href="#start">Dowiedz się więcej</a>
+        </div>
+    </div>
+    <div id="start"></div>
+    <div class="container" style="margin-top: 110px;">
+        <p class="inclusion text-center">Dlaczego warto z nami współpracować</p>
+        <h2 class="text-center">Nowicki & Okunowski</h2>
+    </div>
+    <div class="container">
+        <div class="container"></div>
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-6 szeroka-strona">
+                <p class="more text-center">Odkryj wyjątkowe wizualizacje architektoniczne w ofercie firmy
+                    Nowicki-Okunowski, które wyróżniają się doskonałą jakością i precyzją
+                    wykonania. Dzięki zaawansowanym technikom renderowania, ich wizualizacje przenoszą klientów w
+                    trójwymiarową podróż po planowanych projektach, pozwalając im w pełni zrozumieć
+                    i docenić ich potencjał. Nowoczesne podejście do projektowania i dbałość o detale sprawiają, że
+                    wizualizacje firmy Nowicki-Okunowski są nie tylko narzędziem prezentacji,
+                    ale także inspirującym źródłem kreatywności dla architektów i inwestorów.
+                </p>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    <div style="padding-top: 100px;">
+        <div class="row g-0">
+            <div class="col-6 col-xl-4 f p-0">
+                <img class="swiper-slide" src="img/1.webp" style="width:100%" alt="">
+            </div>
+            <div class="col-6 col-xl-4 f p-0">
+                <img class="swiper-slide" style="width:100%" class="port" src="img/2.webp" alt="">
+            </div>
+            <div class="col-12 col-xl-4 f p-0">
+                <img class="swiper-slide" style="width:100%" class="port" src="img/3.webp" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="slider">
+            <div class="item item1"></div>
+            <div class="item item2"></div>
+            <div class="item item3"></div>
+            <div class="item item4"></div>
+            <div class="item item5"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="oferta" class="container" style="padding-top: 100px;"></div>
+        <p class="text-wrap text-center inclusion">Profesjonalne podejście</p>
+        <h2 class="mx-auto d-block text-center">Oferta</h2>
+    </div>
+    <div class="container overflow-hidden">
+        <div class="row gy-4 gy-xl-0">
+            <div class="col-sm-12 col-xl-4">
+                <div>
+                    <div class="card card-body text-center p-4 p-xxl-5">
+                        <img src="img/home (1).png" style="width: 70px;" class="d-block mx-auto mb-5">
+                        <h4 class="mb-4 text-center">Wizualizacje domów</h4>
+                        <p class="more text-center">Doskonałe narzędzie, które pozwala na realistyczne zobrazowanie przyszłego domu jeszcze przed rozpoczęciem budowy/remontu.
+                            Dzięki temu możesz zobaczyć, jak Twój dom będzie wyglądał w rzeczywistości, co ułatwia podejmowanie decyzji i wprowadzanie ewentualnych zmian na wczesnym etapie.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-4 text-white">
+                <div>
+                    <div class="card card-body text-center p-4 p-xxl-5" style="background-color: #296e92;">
+                        <img fetchpriority="high" src="img/building11.png" style="width: 70px;" class="d-block mx-auto mb-5">
+                        <h4 class="mb-4 text-center">Wizualizacje budynków</h4>
+                        <p class="text-center">
+                            Kluczowy element współczesnych projektów architektonicznych, który pomaga w zrozumieniu i wyobrażeniu 
+                            sobie finalnego efektu jeszcze przed rozpoczęciem budowy. Dzięki wizualizacjom nie tylko zobaczysz, 
+                            jak będzie wyglądał budynek, ale także doświadczysz jego przestrzeni, oświetlenia oraz otoczenia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-4">
+                <div>
+                    <div class="card card-body text-center p-4 p-xxl-5">
+                        <img src="img/architecture.png" style="width: 70px;" class="d-block mx-auto mb-5">
+                        <h4 class="mb-4 text-center">Wizualizacje wnętrz</h4>
+                        <p class="more text-center">Skuteczny sposób, by zobaczyć swoje przyszłe pomieszczenia w pełnej krasie, jeszcze przed rozpoczęciem 
+                            prac wykończeniowych. Tworzymy realistyczne wizualizacje, które pokazują każdy detal. Dzięki temu możesz dokładnie zobaczyć, jak będą prezentować się wnętrza, sprawdzić różne aranżacje i 
+                            wprowadzić zmiany.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+    <div class="container" id="portfolio" style="padding-top: 100px;">
+        <p class="inclusion text-wrap text-center">Jasność, zrozumienie, prezentacja, estetyka</p>
+        <h2 class="mx-auto d-block text-center">Wizualizacje elewacji</h2>
+    </div>
+    <div class="container" style="padding-top: 35px;">
+        <div class="row">
+            <div class="col text-center">
+                <div class="image-comparison">
+                    <div class="images-container">
+                        <img class="before-image" src="img/przed.webp" alt="Zdjęcie zaniedbanego domu przed remontem">
+                        <img class="after-image" src="img/po.webp" alt="Wizualizacja architektoniczna domu po remoncie">
+
+                        <div class="slider-line"></div>
+                        <div class="slider-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                            </svg>
+
+                        </div>
+                        <input type="range" class="slider" min="0" max="100" style="cursor: pointer;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 120px;">
+        <div class="row">
+            <div class="col-sm text-center">
+                <div class="image-comparison" style="margin-top: 10px;">
+                    <div class="images-container">
+                        <img class="before-image" src="img/dom_przed.webp"
+                            alt="Zdjęcie zaniedbanego domu przed remontem">
+                        <img class="after-image" src="img/dom_po.webp"
+                            alt="Wizualizacja architektoniczna domu po remoncie">
+                        <div class="slider-line"></div>
+                        <div class="slider-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                            </svg>
+
+                        </div>
+                        <input type="range" class="slider" min="0" max="100" style="cursor: pointer;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+
+    <div id="Korzyści" class="container" style="padding-top: 100px;">
+        <p class="text-wrap text-center inclusion">Dlaczego warto zdecydować się na wizualizacje</p>
+        <h2 class="mx-auto d-block text-center">Korzyści z wizualizacji</h2>
+    </div>
+    <div class="container overflow-hidden">
+        <div class="row gy-4 gy-xl-0">
+            <div class="col-sm-12 col-xl-4 col-md-6">
+                <div>
+                    <div class="text-md-start text-center p-4 p-xxl-5">
+                        <img src="img/pen.png" style="width: 70px;" class="d-block mb-5  mx-auto mx-md-0">
+                        <h4 class="mb-4 underline underline_small">Precyzja</h4>
+                        <p class="mt-5">Wizualizacje pomagają klientom i społecznościom lepiej zrozumieć
+                            projekt architektoniczny.
+                            Dzięki realistycznym wizualizacjom mogą zobaczyć, jak będzie wyglądała finalna konstrukcja.
+                            To pozwala uniknąć nieporozumień i zmian w późniejszych etapach projektu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-4 col-md-6">
+                <div>
+                    <div class="text-md-start text-center p-4 p-xxl-5">
+                        <img src="img/calendar11.png" style="width: 70px;" class="d-block mb-5 mx-auto mx-md-0">
+                        <h4 class="mb-4 underline underline_small">Terminy</h4>
+                        <p class="mt-5">
+                            W naszej firmie priorytetem jest dostarczenie klientom dokładnie tego, czego potrzebują, i
+                            to w niesamowicie krótkim czasie. Dzięki naszemu doświadczeniu i zaawansowanym narzędziom
+                            jesteśmy
+                            w stanie przekształcić pomysły w wizualne arcydzieła w ekspresowym tempie.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-4 col-md-6">
+                <div>
+                    <div class="text-md-start text-center p-4 p-xxl-5">
+                        <img src="img/target.png" style="width: 70px;" class="d-block mb-5  mx-auto mx-md-0">
+                        <h4 class="mb-4 underline underline_small">Efektywność</h4>
+                        <p class="mt-5">
+                            W naszej firmie priorytetem jest dostarczenie klientom dokładnie tego, czego potrzebują, i
+                            to w niesamowicie krótkim czasie. Dzięki naszemu doświadczeniu i zaawansowanym narzędziom
+                            jesteśmy
+                            w stanie przekształcić pomysły w wizualne arcydzieła w ekspresowym tempie.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-4 col-md-6 d-block d-xl-none">
+                <div>
+                    <div class="text-md-start text-center p-4 p-xxl-5">
+                        <img src="img/customer-engagement.png" style="width: 70px;" class="d-block mb-5  mx-auto mx-md-0">
+                        <h4 class="mb-4 underline underline_small">Atrakcyjność</h4>
+                        <p class="mt-5">Wizualizacje pozwalają na szybkie tworzenie i modyfikowanie różnych wersji projektu. 
+                            Dzięki nowoczesnym narzędziom komputerowym architekci mogą wprowadzać zmiany w czasie rzeczywistym, co 
+                            znacznie przyspiesza proces prototypowania. Klienci mogą zobaczyć różne opcje bez konieczności czekania 
+                            na gotowe modele czy plany.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-sm-12 col-xl-4 col-md-6">
+                <div>
+                    <div class="text-md-start text-center p-4 p-xxl-5">
+                        <img src="img/camera11.png" style="width: 70px;" class="d-block mb-5  mx-auto mx-md-0">
+                        <h4 class="mb-4 underline underline_small">Fotorealizm</h4>
+                        <p class="mt-5">Nasze wizualizacje są starannie wykonane, z naciskiem na precyzję i
+                            estetykę.
+                            Każdy element jest dopracowany, aby zapewnić wysoką jakość i wierność wizualną. Dzięki temu
+                            możemy
+                            zagwarantować naszym klientom, że otrzymają wizualizacje, które są nie tylko atrakcyjne, ale
+                            także dobrze wykonane.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-4 col-md-6">
+                <div>
+                    <div class="text-md-start text-center p-4 p-xxl-5">
+                        <img src="img/checked11.png" style="width: 70px;" class="d-block mb-5  mx-auto mx-md-0">
+                        <h4 class="mb-4 underline underline_small">Komunikacja</h4>
+                        <p class="mt-5">Wizualizacje ułatwiają komunikację między architektami, klientami,
+                            inżynierami i innymi interesariuszami projektu. Zamiast polegać na abstrakcyjnych opisach
+                            czy rysunkach technicznych, wszystkie strony mogą odnosić się do konkretnych obrazów, co
+                            eliminuje niejasności i błędne interpretacje.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-4 col-md-6 d-none d-xl-block">
+                <div>
+                    <div class="text-md-start text-center p-4 p-xxl-5">
+                        <img src="img/customer-engagement.png" style="width: 70px;" class="d-block mb-5  mx-auto mx-md-0">
+                        <h4 class="mb-4 underline underline_small">Atrakcyjność</h4>
+                        <p class="mt-5">Wizualizacje pozwalają na szybkie tworzenie i modyfikowanie różnych wersji projektu. 
+                            Dzięki nowoczesnym narzędziom komputerowym architekci mogą wprowadzać zmiany w czasie rzeczywistym, co 
+                            znacznie przyspiesza proces prototypowania. Klienci mogą zobaczyć różne opcje bez konieczności czekania 
+                            na gotowe modele czy plany.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container " style="margin-top: 100px;">
+        <div class="row">
+          <div class="col-12">
+            <img class="d-md-block d-none" src="img/12.jpg" style="width: 100%;">
+          </div>
+          <div class="col-12 p-0">
+            <img class="d-block d-md-none" src="img/34.jpg" style="width: 100%;">
+          </div>
+        </div>
+      </div>
+      
+
+    
+    <div style="background-color: #141414; margin-top: 100px;">
+        <div id="" class="container" style="padding-top: 50px;">
+            <p class="text-wrap text-center inclusion">Poznaj nas i nasze kompetencje</p>
+            <h2 class="mx-auto d-block text-center text-white">O nas</h2>
+        </div>
+        <div class="container">
+            <div class="container" style="padding-top: 10px;"></div>
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col-7 szeroka-strona">
+                    <p class="more text-center">Witamy w naszej firmie specjalizującej się w wizualizacjach
+                        architektonicznych
+                        i designie. Jesteśmy zespołem pasjonatów, którzy połączyli swoją miłość do architektury
+                        z talentem do tworzenia niesamowitych wizualizacji.
+                        Dzięki zaawansowanym
+                        technologiom i kreatywności, zapewniamy naszym klientom wysokiej jakości
+                        , które pomagają zobaczyć projekt jeszcze przed jego realizacją.
+                        nami to gwarancja profesjonalizmu, kreatywności i zadowolenia z efektów.
+                    </p>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+        </div>
+        <div class="container" style="padding-top: 100px;"></div>
+    </div>
+    <footer id="kontakt" class="foot" style="background-image: linear-gradient(rgb(10, 10, 10), rgb(2, 2, 2));">
+        <div class=" pt-5">
+            <p class="inclusion text-wrap text-center">Skonsultuj z nami swój projekt</p>
+            <h2 class="text-white text-center mx-auto d-block">Kontakt</h2>
+            <span class="underline_white"></span>
+            <div class="container py-5" style="margin-top: 80px;">
+                <div class="row">
+                    <div class="col">
+                        <img src="img/phone.webp" style="width: 42px;" class="kontakt mx-auto d-block" alt="">
+                    </div>
+                    <div class="col">
+                        <img src="img/location.webp" style="width: 42px;" class="kontakt mx-auto d-block" alt="">
+                    </div>
+                    <div class="col">
+                        <img src="img/mail.webp" style="width: 42px;" class="kontakt mx-auto d-block" alt="">
+                    </div>
+                    <div class="w-100 py-2"></div>
+                    <div class="col" style="width: 20%;">
+                        <p class="more kontakt-text text-secondary text-center fs-7">+48 999 999 999</p>
+                    </div>
+                    <div class="col" style="width: 20%;">
+                        <p class="more kontakt-text text-secondary text-center fs-7">Piaski, Gorzów Wielkopolski</p>
+                    </div>
+                    <div class="col" style="width: 20%; overflow-wrap: break-word;">
+                        <p class="more kontakt-text text-secondary text-wrap text-center fs-7">
+                            Nowicki&Okunowski@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center  text-secondary" style="margin-top: 5.5%; padding-bottom: 0.8%;">
+            <p class="more copy-text">Copyright 2024 © | All rights reserved</p>
+        </div>
+    </footer>
+    <script async src="script.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
