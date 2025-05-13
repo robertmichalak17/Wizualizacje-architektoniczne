@@ -4,5 +4,5 @@ A website created for a company specializing in architectural visualizations. Bu
 # Preview
 ![image-alt](https://github.com/robertmichalak17/Wizualizacje-architektoniczne/blob/a61472152e9a87fbde943f86a2e5678c006c2576/wizualizacje_architektoniczne.jpg)
 
-![image-alt](https://github.com/robertmichalak17/Wizualizacje-architektoniczne/blob/61a954dbdc8365511566ac74635ba190df552451/wizualizacje_architektoniczne_devices.jpg)
+![image-alt](https://github.com/robertmichalak17/Wizualizacje-architektoniczne/blob/8a5eb50dc79594e7f6b8318f8a1bc8b795ba7b8f/wizualizacje.jpg)
 
